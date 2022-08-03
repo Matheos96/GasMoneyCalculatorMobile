@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Switch } from "react-native"
 import { Picker } from "@react-native-picker/picker";
 import { FUEL_TYPES } from '../StateContext';
 import { useStateContext, INPUT_TYPES } from '../StateContext'
+import Theme from '../theme'
 
 const AutoFuelPrice = () => {
     const ctx = useStateContext()
@@ -39,35 +40,21 @@ const AutoFuelPrice = () => {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: '16.6%',
         alignItems: 'center',
-        justifyContent: 'space-between'
-    },
-    pickerContainer: {
-        justifyContent: 'center',
-        width: '60%',
-        backgroundColor: 'white',
-        borderWidth: 1,
-        height: 40,
-        padding: 10,
-        margin: 5,
-    },
-    dropdown: {
-        width: '100%',
-    },
-    dropdownDisabled: {
-        opacity: 0.5
-    },
-    switch: {
-        transform: [
-            {scale: 1.5}
-        ]
+        justifyContent: 'space-between',
     },
     inputHeader: {
-        marginBottom: 2,
         fontSize: 20,
-        color: '#FFF5EE'
-    }
-});
+        color: Theme.textColor
+    },
+    switch: {
+        transform: [ { scale: 1.3 } ]
+    },
+    pickerContainer: {
+        backgroundColor: Theme.boxColor,
+        width: Theme.boxWidth,
+        borderWidth: 1,
+    },
+})
 
 export default AutoFuelPrice

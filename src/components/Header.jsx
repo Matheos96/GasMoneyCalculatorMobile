@@ -1,6 +1,7 @@
 import React from 'react'
 import {StyleSheet, View, Text} from 'react-native'
-const Header = ({ title }) => {
+import Theme from '../theme'
+const Header = () => {
     return (
         <View style={styles.header}>
                 <Text style={styles.headerText}>Gas Money Calculator</Text>
@@ -11,22 +12,21 @@ const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#5497A7',
+        flex: 1,
+        backgroundColor: Theme.secondaryColor,
         alignItems: 'center',
-        justifyContent: 'center',
-        borderBottomWidth: 5,
-        borderBottomColor: '#50858B',
-        paddingTop: 20
+        borderBottomWidth: Theme.borderWidth,
+        borderBottomColor: Theme.borderColor,
     },
     headerText: {
-        color: '#FFF5EE',
+        color: Theme.textColor,
         fontSize: 32,
         paddingTop: 15,
         paddingBottom: 4,
         fontWeight: "500"
     },
     byText: {
-        color: '#FFF5EE',
+        color: Theme.textColor,
         fontStyle: 'italic'
     }
 })

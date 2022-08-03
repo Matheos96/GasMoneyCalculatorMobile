@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput } from "react-native"
 import { useStateContext, INPUT_TYPES } from '../StateContext'
+import Theme from '../theme'
 
 const UserInput = ({ label, type }) => {
     const ctx = useStateContext()
@@ -25,22 +26,23 @@ const UserInput = ({ label, type }) => {
 
 const styles = StyleSheet.create({
     inputContainer: {
+        flex: 1,
         width: '100%',
-        height: '16.6%',
         alignItems: 'center',
         justifyContent: 'space-evenly'
     },
     textInput: {
-        width: '60%',
+        backgroundColor: Theme.boxColor,
+        width: Theme.boxWidth,
         borderWidth: 1,
         height: 50,
         padding: 10,
-        backgroundColor: 'white'
+        fontSize: 17
     },
     inputHeader: {
         fontSize: 20,
-        color: '#FFF5EE'
+        color: Theme.textColor
     }
-});
+})
 
 export default UserInput

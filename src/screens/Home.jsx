@@ -1,19 +1,15 @@
 import React from 'react'
 import { StyleSheet, View } from "react-native"
-import { StateProvider } from '../StateContext'
-import Header from './Header'
-import { INPUT_TYPES } from '../StateContext'
-import UserInput from './UserInput'
-import Result from './Result'
-import AutoFuelPrice from './AutoFuelPrice'
-import Theme from '../theme'
+import { StateProvider, INPUT_TYPES } from '../StateContext'
+import Header from '../components/Header'
+import UserInput from '../components/UserInput'
+import AutoFuelPrice from '../components/AutoFuelPrice'
+import Theme from '../constants/theme'
 import { StatusBar, SafeAreaView } from 'react-native'
-import Calculate from './Calculate'
-import Footer from './Footer'
+import Footer from '../components/Footer'
 
 
-const Main = () => {
-
+const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={Theme.secondaryColor}/>
@@ -39,9 +35,9 @@ const Main = () => {
                             label="Manually set fuel price (€/l)" 
                             type={INPUT_TYPES.MANUAL_FUEL} />
                         
-                        <Footer />
+                        
                 </View>
-                
+                <Footer />
             </StateProvider>
         </SafeAreaView>
     )
@@ -50,12 +46,12 @@ const Main = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: Theme.primaryColor,
     },
     body: {
         flex: 7,
-        backgroundColor: Theme.primaryColor,
         alignItems: 'center'
     }
 })
 
-export default Main
+export default Home

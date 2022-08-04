@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput } from "react-native"
 import { useStateContext, INPUT_TYPES } from '../StateContext'
-import Theme from '../theme'
+import Theme from '../constants/theme'
 
 const UserInput = ({ label, type }) => {
     const ctx = useStateContext()

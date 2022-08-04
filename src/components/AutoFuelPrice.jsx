@@ -1,9 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, Text, Switch } from "react-native"
 import { Picker } from "@react-native-picker/picker";
-import { FUEL_TYPES } from '../StateContext';
-import { useStateContext, INPUT_TYPES } from '../StateContext'
-import Theme from '../theme'
+import { useStateContext, INPUT_TYPES, FUEL_TYPES } from '../StateContext'
+import Theme from '../constants/theme'
 
 const AutoFuelPrice = () => {
     const ctx = useStateContext()

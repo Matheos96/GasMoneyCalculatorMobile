@@ -2,7 +2,7 @@ import React from 'react'
 import { Keyboard, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { useStateContext, INPUT_TYPES } from '../StateContext'
 import { getAveragePrice } from '../services/fuelPriceService'
-import Theme from '../theme'
+import Theme from '../constants/theme'
 
 const Calculate = ({ setShowResult, setResult }) => {
     const ctx = useStateContext()

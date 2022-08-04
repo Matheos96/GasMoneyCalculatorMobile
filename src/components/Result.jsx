@@ -1,23 +1,22 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
-import Theme from '../theme'
+import Theme from '../constants/theme'
 
 const Result = ({ showResult, result }) => {
     return (
         <View style={styles.container}>
-            {
-                showResult && 
-                <Text style={styles.resultText}>
-                    Each person pays { result } €
-                </Text>
-            }
+            <Text style={styles.resultText}>
+                   {
+                    showResult && <>Each person pays { result } €</>
+                   }
+            </Text>
         </View>   
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        paddingVertical: 8,
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',

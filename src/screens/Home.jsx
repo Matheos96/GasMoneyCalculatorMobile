@@ -1,21 +1,24 @@
-import React from 'react'
-import { StyleSheet, View } from "react-native"
+import React, { useState } from 'react'
+import { SafeAreaView, StyleSheet, View } from "react-native"
 import { StateProvider, INPUT_TYPES } from '../StateContext'
 import Header from '../components/Header'
 import UserInput from '../components/UserInput'
 import AutoFuelPrice from '../components/AutoFuelPrice'
 import Theme from '../constants/theme'
-import { StatusBar, SafeAreaView } from 'react-native'
-import Footer from '../components/Footer'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Result from '../components/Result'
+import Calculate from '../components/Calculate'
 
 
 const Home = () => {
+    const [showResult, setShowResult] = useState(false)
+    const [result, setResult] = useState('')
+
     return (
         <SafeAreaView style={styles.container}>
             <Header title='Gas Money Calculator' secondaryText='By Matheos Mattsson' />
             <StateProvider>
-                <View style={styles.body}>
-                    
+                <KeyboardAwareScrollView contentContainerStyle={styles.body} resetScrollToCoords={{x: 0, y: 0}}> 
                         <UserInput 
                             label='Distance (km)' 
                             type={INPUT_TYPES.DISTANCE} />
@@ -34,9 +37,9 @@ const Home = () => {
                             label='Manually set fuel price (€/l)' 
                             type={INPUT_TYPES.MANUAL_FUEL} />
                         
-                        
-                </View>
-                <Footer />
+                        <Calculate setShowResult={setShowResult} setResult={setResult} />
+                </KeyboardAwareScrollView>
+                <Result showResult={showResult} result={result} />
             </StateProvider>
         </SafeAreaView>
     )
@@ -48,7 +51,7 @@ const styles = StyleSheet.create({
         backgroundColor: Theme.primaryColor,
     },
     body: {
-        flex: 7,
+        flexGrow: 7,
         alignItems: 'center'
     }
 })

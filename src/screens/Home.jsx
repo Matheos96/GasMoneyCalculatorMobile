@@ -12,27 +12,26 @@ import Footer from '../components/Footer'
 const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor={Theme.secondaryColor}/>
-            <Header />
+            <Header title='Gas Money Calculator' secondaryText='By Matheos Mattsson' />
             <StateProvider>
                 <View style={styles.body}>
                     
                         <UserInput 
-                            label="Distance (km)" 
+                            label='Distance (km)' 
                             type={INPUT_TYPES.DISTANCE} />
 
                         <UserInput 
-                            label="Fuel Consumption (l/100km)" 
+                            label='Fuel Consumption (l/100km)' 
                             type={INPUT_TYPES.CONSUMPTION} />
                         
                         <UserInput 
-                            label="Split between (persons)" 
+                            label='Split between (persons)' 
                             type={INPUT_TYPES.PERSONS} />
 
                         <AutoFuelPrice />
 
                         <UserInput 
-                            label="Manually set fuel price (€/l)" 
+                            label='Manually set fuel price (€/l)' 
                             type={INPUT_TYPES.MANUAL_FUEL} />
                         
                         

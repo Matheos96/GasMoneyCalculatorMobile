@@ -1,28 +1,28 @@
 import React from 'react'
-import {StyleSheet, View, Text} from 'react-native'
+import { StatusBar, StyleSheet, View, Text } from 'react-native'
 import Theme from '../constants/theme'
-const Header = () => {
+
+const Header = ({ title, secondaryText}) => {
     return (
         <View style={styles.header}>
-                <Text style={styles.headerText}>Gas Money Calculator</Text>
-                <Text style={styles.byText}>By Matheos Mattsson</Text>
+            <StatusBar backgroundColor={Theme.secondaryColor}/>
+            <Text style={styles.headerText}>{ title }</Text>
+            { secondaryText && <Text style={styles.byText}>{ secondaryText }</Text> }
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     header: {
-
         backgroundColor: Theme.secondaryColor,
         alignItems: 'center',
         borderBottomWidth: Theme.borderWidth,
         borderBottomColor: Theme.borderColor,
+        padding: 1
     },
     headerText: {
         color: Theme.textColor,
         fontSize: 32,
-        paddingTop: 15,
-        paddingBottom: 4,
         fontWeight: "500"
     },
     byText: {

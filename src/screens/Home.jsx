@@ -7,7 +7,8 @@ import AutoFuelPrice from '../components/AutoFuelPrice'
 import Theme from '../constants/theme'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Result from '../components/Result'
-import Calculate from '../components/Calculate'
+import Calculate from '../components/CalculateButton'
+import ResetButton from '../components/ResetButton'
 
 
 const Home = () => {
@@ -38,6 +39,7 @@ const Home = () => {
                             type={INPUT_TYPES.MANUAL_FUEL} />
                         
                         <Calculate setShowResult={setShowResult} setResult={setResult} />
+                        <ResetButton />
                 </KeyboardAwareScrollView>
                 <Result showResult={showResult} result={result} />
             </StateProvider>

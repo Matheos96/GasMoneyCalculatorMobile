@@ -9,8 +9,7 @@ const UserInput = ({ label, type }) => {
     const onchange = ctx.getSetter(type)
     const editable = !(type == INPUT_TYPES.MANUAL_FUEL && ctx.getValue(INPUT_TYPES.AUTO_FUEL))
     const calculateStatus = ctx.getValue(CALCULATE_STATUS_KEY)
-    const setCalculateStatus = ctx.getSetter(CALCULATE_STATUS_KEY)
-
+    
     const styles = StyleSheet.create({
         inputContainer: {
             flex: 1,

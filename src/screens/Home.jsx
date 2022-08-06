@@ -9,11 +9,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import Result from '../components/Result'
 import Calculate from '../components/CalculateButton'
 import ResetButton from '../components/ResetButton'
+import IncrementDecrement from '../components/IncrementDecrement'
 
 
 const Home = () => {
-    const [showResult, setShowResult] = useState(false)
-    const [result, setResult] = useState('')
 
     return (
         <SafeAreaView style={styles.container}>
@@ -28,9 +27,9 @@ const Home = () => {
                             label='Fuel Consumption (l/100km)' 
                             type={INPUT_TYPES.CONSUMPTION} />
                         
-                        <UserInput 
+                        <IncrementDecrement
                             label='Split between (persons)' 
-                            type={INPUT_TYPES.PERSONS} />
+                            type={INPUT_TYPES.PERSONS}/>
 
                         <AutoFuelPrice />
 
@@ -38,10 +37,10 @@ const Home = () => {
                             label='Manually set fuel price (€/l)' 
                             type={INPUT_TYPES.MANUAL_FUEL} />
                         
-                        <Calculate setShowResult={setShowResult} setResult={setResult} />
+                        <Calculate />
                         <ResetButton />
                 </KeyboardAwareScrollView>
-                <Result showResult={showResult} result={result} />
+                <Result />
             </StateProvider>
         </SafeAreaView>
     )

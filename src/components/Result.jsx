@@ -1,13 +1,17 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import Theme from '../constants/theme'
+import { RESULT_KEY, useStateContext } from '../StateContext'
 
-const Result = ({ showResult, result }) => {
+const Result = () => {
+    const ctx = useStateContext()
+    const result = ctx.getValue(RESULT_KEY)
+
     return (
         <View style={styles.container}>
             <Text style={styles.resultText}>
                    {
-                    showResult && <>Each person pays { result } €</>
+                    (result != '') && <>Each person pays { result } €</>
                    }
             </Text>
         </View>   

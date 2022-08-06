@@ -1,6 +1,6 @@
 import React from 'react'
 import { Keyboard, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
-import { useStateContext, INPUT_TYPES } from '../StateContext'
+import { useStateContext, INPUT_TYPES, CALCULATE_STATUS_KEY } from '../StateContext'
 import { getAveragePrice } from '../services/fuelPriceService'
 import Theme from '../constants/theme'
 
@@ -13,8 +13,7 @@ const Calculate = ({ setShowResult, setResult }) => {
     const price = ctx.getValue(INPUT_TYPES.MANUAL_FUEL)
     const fuelType = ctx.getValue(INPUT_TYPES.PICKER)
     const useAutoFuel = ctx.getValue(INPUT_TYPES.AUTO_FUEL)
-
-    
+    const setCalculateStatus = ctx.getSetter(CALCULATE_STATUS_KEY)
 
     const onCalculate = async () => {
         const fuelPrice = useAutoFuel ? await getAveragePrice(fuelType) : price
@@ -24,6 +23,7 @@ const Calculate = ({ setShowResult, setResult }) => {
             setShowResult(true)
         }
         Keyboard.dismiss()
+        setCalculateStatus(true)
     }
 
     return (

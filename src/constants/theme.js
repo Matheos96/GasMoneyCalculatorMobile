@@ -6,5 +6,6 @@ export default {
     textColor: 'white',
     buttonColor: '#A1D2CE',
     boxColor: 'white',
+    boxInvalidColor: '#f25b50',
     boxWidth: '60%'
 }

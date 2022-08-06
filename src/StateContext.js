@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 
 export const INPUT_TYPES = {DISTANCE: 1, PERSONS: 2, CONSUMPTION: 3, MANUAL_FUEL: 4, AUTO_FUEL: 5, PICKER: 6}
 export const FUEL_TYPES = {GAS95E10: '95E10', GAS98E: '98E', DIESEL: 'Diesel'}
+export const CALCULATE_STATUS_KEY = 'CALCSTATUS'
 
 const StateContext = React.createContext()
 
@@ -14,6 +15,7 @@ export const StateProvider = ({ children }) => {
     const [fuelPrice, setFuelPrice] = useState('')
     const [autoPrice, setAutoPrice] = useState(true)
     const [pickerValue, setPickerValue] = useState(FUEL_TYPES.GAS95E10)
+    const [calculatePressed, setCalculatePressed] = useState(false)
 
     const getValue = type => {
          switch(type) {
@@ -29,6 +31,8 @@ export const StateProvider = ({ children }) => {
                 return autoPrice
             case INPUT_TYPES.PICKER:
                 return pickerValue
+            case CALCULATE_STATUS_KEY:
+                return calculatePressed
             default:
                 throw new Error("Unknown type given to getValue function!")
         }
@@ -48,6 +52,8 @@ export const StateProvider = ({ children }) => {
                return setAutoPrice
             case INPUT_TYPES.PICKER:
                return setPickerValue
+            case CALCULATE_STATUS_KEY:
+                return setCalculatePressed
            default:
                throw new Error("Unknown type given to getSetter function!")
        }

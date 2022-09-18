@@ -38,7 +38,7 @@ const IncrementDecrement = ({ type, label }) => {
             width: '23%'
         },
         button: {
-            borderRadius: 3,
+            borderRadius: 5,
             paddingHorizontal:8,
             paddingVertical: 8,
             backgroundColor: Theme.secondaryColor,

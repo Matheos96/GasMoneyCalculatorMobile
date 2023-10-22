@@ -29,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "sdkVersion": "49.0.0",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

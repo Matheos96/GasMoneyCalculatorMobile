@@ -1,6 +1,7 @@
 export default {
     primaryColor: '#62A8AC',
     secondaryColor: '#5497A7',
+    altColor: 'rgba(110, 103, 107, 0.25)',
     borderColor: '#50858B',
     borderWidth: 5,
     textColor: 'white',

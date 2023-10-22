@@ -3,6 +3,7 @@ import { Keyboard, StyleSheet, View, Text, TouchableOpacity } from 'react-native
 import { useStateContext, INPUT_TYPES, CALCULATE_STATUS_KEY, RESULT_KEY } from '../StateContext'
 import { getAveragePrice } from '../services/fuelPriceService'
 import Theme from '../constants/theme'
+import { getData, SETTINGS_KEYS as SETTING } from '../services/settingsService'
 
 const Calculate = () => {
     const ctx = useStateContext()
@@ -18,9 +19,18 @@ const Calculate = () => {
 
     const onCalculate = async () => {
         const fuelPrice = useAutoFuel ? await getAveragePrice(fuelType) : price
-        const res = Math.round((((distance / 100.0) * consumption * fuelPrice) / persons) * 100.0) / 100.0
-        if (!isNaN(res)) {
-            setResult(res)
+        const useImperial = await getData(SETTING.USE_IMPERIAL)
+        let result;
+        if (useImperial) {
+            result = Math.round((((distance / consumption) * fuelPrice) / persons) * 100.0) / 100.0
+        }
+        else {
+            result = Math.round((((distance / 100.0) * consumption * fuelPrice) / persons) * 100.0) / 100.0
+        }
+
+
+        if (!isNaN(result)) {
+            setResult(result)
         }
         Keyboard.dismiss()
         setCalculateStatus(true)

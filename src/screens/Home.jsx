@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, StyleSheet, View } from "react-native"
+import { SafeAreaView, StyleSheet, Platform, StatusBar } from "react-native"
 import { StateProvider, INPUT_TYPES } from '../StateContext'
 import Header from '../components/Header'
 import UserInput from '../components/UserInput'
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Theme.primaryColor,
+        // 2. Add top padding specifically for Android:
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     body: {
         flexGrow: 7,
